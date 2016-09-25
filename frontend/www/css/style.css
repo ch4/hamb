@@ -14,3 +14,13 @@
 .comment-info {
   margin-top: 10px;
 }
+.login-btns {
+    padding-top: 5px;
+}
+.bar {
+    background-color: #B1DFE5;
+}
+
+#loginBtn.button.button-positive {
+    background-color: #0E2451;
+}

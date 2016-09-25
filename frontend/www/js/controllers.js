@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+$scope.loginBtnStatus=true;
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -23,6 +24,11 @@ angular.module('starter.controllers', [])
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
+
+//switch from login to signup
+    $scope.toggleLogin = function(loginStatus) {
+        $scope.loginBtnStatus = loginStatus;
+    };
 
   // Open the login modal
   $scope.login = function() {
