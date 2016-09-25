@@ -4,19 +4,19 @@
     <div class="list list-inset">
       <label class="item item-input item-icon-right">
         <input type="text" placeholder="What do you need, and why?" ng-model="need.text" ng-click="expandNeedInput()">
-        <i class="icon ion-arrow-right-c" ng-click="submitNeed()"></i>
+        <i class="icon ion-arrow-right-c" ng-click="submitNeed()" ng-hide="isNeedInputExpanded"></i>
       </label>
     </div>
 
     <div ng-hide="!isNeedInputExpanded">
       <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" placeholder="Tags...">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Location">
-        </label>
-        <button class="button button-balanced" ng-click="submitNeed()">Add Need</button>
+        <!--<label class="item item-input">-->
+          <!--<input type="text" placeholder="Tags...">-->
+        <!--</label>-->
+        <!--<label class="item item-input">-->
+          <!--<input type="text" placeholder="Location">-->
+        <!--</label>-->
+        <button class="button button-balanced button-full" ng-click="submitNeed()">Add Need</button>
       </div>
     </div>
 
