@@ -26,3 +26,17 @@
 #loginBtn.button.button-positive {
   background-color: #0E2451;
 }
+
+#name {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+#add-comment-button {
+  background-color: #0E2451;
+  margin-left: 10px;
+}
+
+#comment-title {
+  margin-left: 10px;
+}

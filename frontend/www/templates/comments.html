@@ -1,11 +1,12 @@
 <ion-view view-title="Comments">
   <ion-content>
     <div id="comments-header" class="row">
-      <div class="col">Hi, I'm....<br>
-      I need...</div>
-      <div class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br>John Doe</div>
+      <div class="col">
+      <h1> Hi, I'm....<br>
+      I need...</div> </h1>
+      <div class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br><span id="name">John Doe</span></div>
     </div>
-    <h1> Comments </h1>
+    <h1 id="comment-title"> Comments </h1>
       <div class="list list-inset">
         <div id="item-id" class="item">
           {{subject}} <br>
@@ -16,5 +17,8 @@
           <p class="comment-info">{{message}}</p>
         </div>
       </div>
+    <button id="add-comment-button" class="button button-positive">
+      Add Comment
+    </button>
   </ion-content>
 </ion-view>
