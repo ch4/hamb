@@ -68,21 +68,27 @@ module('starter.services', [])
       getAllComments: getAllComments
     };
 
-    function getCommentsByNeed(needId){
-      return $http.get('http://www.mindengei.com/api/needs/'+needId+'/comments')
+    function getCommentsByNeed(needId) {
+      return $http.get('http://www.mindengei.com/api/needs/' + needId + '/comments')
         .then(function (results) {
           return results.data;
         }, function (error) {
           return [];
         });
     }
-    function getAllComments(){
-      // TODO
-      return [];
-    }
-    function postComments(user, commentObj){
-      // TODO
 
+    function getAllComments() {
+      // TODO
       return [];
     }
+
+    function postComments(needId, userId, text) {
+      return $http.post('http://www.mindengei.com/api/needs/' + needId + '/comments', {userId: userId, text: text})
+        .then(function (results) {
+          return results.data;
+        }, function (error) {
+          return [];
+        });
+    }
+    
   }]);
