@@ -14,7 +14,7 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
         // handle things like api calls
         // authentication routes
 
-        // All Users
+        // Get all Users
         app.get('/api/users', function(req, res) {
             User.find(function(err, users) {
 
@@ -26,6 +26,20 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
                 res.json(users); // return all nerds in JSON format
             });
         });
+
+        // Get a User
+        app.get('/api/users/:user_id', function(req, res) {
+            User.findById(req.params.user_id, function(err, user) {
+
+                // if there is an error retrieving, send the error.
+                                // nothing after res.send(err) will execute
+                if (err)
+                    res.send(err);
+
+                res.json(user); // return all nerds in JSON format
+            });
+        });
+
 
         // Create User
         app.post('/api/users', function(req, res) {
@@ -50,6 +64,19 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
                     res.send(err);
 
                 res.json(needs); // return all nerds in JSON format
+            });
+        });
+
+        // Single Need
+        app.get('/api/needs/:need_id', function(req, res) {
+            Need.findById(req.params.need_id, function(err, need) {
+
+                // if there is an error retrieving, send the error.
+                                // nothing after res.send(err) will execute
+                if (err)
+                    res.send(err);
+
+                res.json(need); // return all nerds in JSON format
             });
         });
 
