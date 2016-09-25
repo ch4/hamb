@@ -47,8 +47,6 @@ $scope.loginBtnStatus=true;
   };
 })
 
-  //Creates a comment modal
-
 
 .controller('SignupCtrl', function($scope) {
   $scope.name = 'Name';
@@ -78,9 +76,42 @@ $scope.loginBtnStatus=true;
   $scope.date = 'September 23, 2016';
 })
 
-.controller('CommentCtrl', function($scope) {
+.controller('CommentCtrl', function($scope, $ionicModal) {
   $scope.subject = 'Test';
   $scope.message = 'Lorem ipsum dolor sit amet.';
+
+
+  //Form data for the post model
+  $scope.postData = {};
+  $scope.postBtnStatus=true;
+
+  //Creates a comment modal
+  $ionicModal.fromTemplateUrl('templates/newcommentform.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  })
+
+  // Triggered in the post
+  $scope.closeComment = function() {
+    $scope.modal.hide();
+  };
+
+  // Open the comment modal
+  $scope.comment = function() {
+    $scope.modal.show();
+  };
+
+  // Perform the login action when the user submits the login form
+  $scope.addComment = function() {
+    console.log('adding comment', $scope.addComment);
+
+    // Simulate a login delay. Remove this and replace with your login
+    // code if using a login system
+    $timeout(function() {
+      $scope.closeComment();
+    }, 1000);
+  };
 })
 
 .controller('SignupCtrl', function($scope) {

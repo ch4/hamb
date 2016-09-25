@@ -23,7 +23,7 @@
   background-color: #B1DFE5;
 }
 
-#loginBtn.button.button-positive {
+#loginBtn.button.button-positive, #submitBtn {
   background-color: #0E2451;
 }
 
