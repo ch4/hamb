@@ -88,5 +88,5 @@ module('starter.services', [])
 
       return [];
     }
-});
+    }
   }]);
