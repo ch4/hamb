@@ -63,9 +63,20 @@ $scope.loginBtnStatus=true;
     { title: 'Cowbell', id: 6 }
   ];
 })
-.controller('FeedCtrl', function($scope, $stateParams, $state, $ionicModal, UserService) {
+.controller('FeedCtrl', function($scope, $stateParams, $state, $ionicModal, $location, UserService, NeedService) {
+  $scope.need = {};
   $scope.expandNeedInput = function(){
     $scope.isNeedInputExpanded = true;
+  };
+
+  $scope.refresh = function(){
+    NeedService.getAllNeeds().then(function(result){
+      $scope.allNeeds = result;
+    });
+  };
+
+  $scope.getUser = function(userId){
+    return UserService.getUser(userId);
   };
 
   $scope.needClickEvent = function(needId){
@@ -79,9 +90,16 @@ $scope.loginBtnStatus=true;
     //     $scope.modal.show();
     //   });
     // } else {
-      $state.go('app.comments', {needId: needId});
+    //   $state.go('app.comments', {needId: needId});
     // }
+    $location.path('/app/comments/'+needId);
   };
+
+  $scope.submitNeed = function(){
+    NeedService.postNeeds('57e7418dc7bf9aac05f4fe82', $scope.need.text);
+  };
+
+  $scope.refresh();
 })
 
 .controller('ProfileCtrl', function($scope) {
@@ -92,9 +110,24 @@ $scope.loginBtnStatus=true;
   $scope.quote = 'Lorem ipsum dolor sit amet.';
 })
 
-.controller('CommentCtrl', function($scope) {
-  $scope.subject = 'Test';
-  $scope.message = 'Lorem ipsum dolor sit amet.';
+.controller('CommentCtrl', function($scope, $stateParams, NeedService, UserService, CommentService) {
+  // $scope.subject = 'Test';
+  // $scope.message = 'Lorem ipsum dolor sit amet.';
+
+  // $scope.getNeed = function(){
+    var needId = $stateParams.needId;
+    NeedService.getNeed(needId).then(function(result){
+      $scope.need = result;
+    });
+  // }
+  CommentService.getCommentsByNeed(needId).then(function(result){
+    console.log(result);
+    $scope.comments = result;
+  });
+
+  $scope.getUser = function(userId){
+    return UserService.getUser(userId);
+  };
 })
 
 .controller('SignupCtrl', function($scope) {

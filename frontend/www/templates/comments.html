@@ -1,19 +1,15 @@
 <ion-view view-title="Comments">
   <ion-content>
     <div id="comments-header" class="row">
-      <div class="col">Hi, I'm....<br>
-      I need...</div>
-      <div class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br>John Doe</div>
+      <div class="col">Hi, I'm {{getUser(need.user).name}}<br>
+      I need {{need.text}}</div>
+      <div class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br>{{getUser(need.user).name}}</div>
     </div>
     <h1> Comments </h1>
       <div class="list list-inset">
-        <div id="item-id" class="item">
-          {{subject}} <br>
-          <p class="comment-info">fdsafdasfasdf</p>
-        </div>
-        <div id="item-id" class="item">
-          {{subject}} <br>
-          <p class="comment-info">{{message}}</p>
+        <div id="item-id" class="item" ng-repeat="comment in comments">
+          {{getUser(comment.user).name}} <br>
+          <p class="comment-info">{{comment.text}}</p>
         </div>
       </div>
   </ion-content>

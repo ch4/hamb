@@ -3,7 +3,7 @@
     <!--<h2 class="text-center">What do you need?</h2>-->
     <div class="list list-inset">
       <label class="item item-input item-icon-right">
-        <input type="text" placeholder="What do you need, and why?" ng-click="expandNeedInput()">
+        <input type="text" placeholder="What do you need, and why?" ng-model="need.text" ng-click="expandNeedInput()">
         <i class="icon ion-arrow-right-c" ng-click="submitNeed()"></i>
       </label>
     </div>
@@ -16,37 +16,21 @@
         <label class="item item-input">
           <input type="text" placeholder="Location">
         </label>
+        <button class="button button-balanced" ng-click="submitNeed()">Add Need</button>
       </div>
     </div>
 
     <div>
       <div class="list list-inset">
-        <h3>Recent Needs</h3>
+        <h3 ng-click="refresh()">Recent Needs</h3>
 
-        <div class="card" ng-click="needClickEvent('123')">
+        <div class="card" ng-click="needClickEvent(need._id)" ng-repeat="need in allNeeds | orderBy:'-'">
           <div class="item item-text-wrap item-icon-right">
-            I'm Harvey!<br>
-            I need new shoes because I do lots of walking.
+            I'm {{getUser(need.user).name}}!<br>
+            {{need.text}}
             <i class="icon ion-heart"></i>
           </div>
         </div>
-
-        <div class="card" ng-click="needClickEvent('123')">
-          <div class="item item-text-wrap item-icon-right">
-            I'm Harvey!<br>
-            I need new shoes because I do lots of walking.
-            <i class="icon ion-heart"></i>
-          </div>
-        </div>
-
-        <div class="card" ng-click="needClickEvent('123')">
-          <div class="item item-text-wrap item-icon-right">
-            I'm Harvey!<br>
-            I need new shoes because I do lots of walking.
-            <i class="icon ion-heart"></i>
-          </div>
-        </div>
-      </div>
 
     </div>
   </ion-content>
