@@ -41,6 +41,11 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('SignupCtrl', function($scope) {
+  $scope.name = 'Name';
+  $scope.phone = 'Phone';
+})
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
@@ -50,6 +55,23 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+})
+
+.controller('ProfileCtrl', function($scope) {
+  //placeholder scopes for app until we create scopes
+  $scope.name = 'John Doe';
+  $scope.phone = '(111) 111-1111';
+  $scope.location = 'San Francisco, CA, US';
+  $scope.quote = 'Lorem ipsum dolor sit amet.';
+})
+
+.controller('CommentCtrl', function($scope) {
+  $scope.subject = 'Test';
+  $scope.message = 'Lorem ipsum dolor sit amet.';
+})
+
+.controller('SignupCtrl', function($scope) {
+  $scope.message = 'Test';
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
