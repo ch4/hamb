@@ -1,9 +1,12 @@
  // app/routes.js
 
-// grab the nerd model we just created
+// grab models
 var User = require('./models/user');
 var Need = require('./models/need');
 var Comment = require('./models/comment');
+var twilio = require('twilio');
+var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+
 
     module.exports = function(app) {
 
@@ -105,7 +108,14 @@ var Comment = require('./models/comment');
                 if (err)
                     res.send(err);
 
-                res.json({ message: 'Comment created!' });
+                res.json({ message: 'Comment added!' });
+            });
+
+            //var phone =
+            client.sendMessage({
+                to: process.env.TEST_PHONE,
+                from: process.env.TWILIO_PHONE,
+                body: 'New Comment: ' + comment.text
             });
         });
         // route to handle delete goes here (app.delete)
