@@ -97,7 +97,7 @@ var Comment = require('./models/comment');
         // Create Comment
         app.post('/api/needs/:need_id/comments', function(req, res) {
             var comment = new Comment();
-            comment.need = req.body.need;
+            comment.need = req.params.need_id;
             comment.user = req.body.user;
             comment.text = req.body.text;
 
