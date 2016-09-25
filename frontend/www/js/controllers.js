@@ -124,19 +124,27 @@ $scope.loginBtnStatus=true;
 
   $scope.getUser = function(userId){
     return UserService.getUser(userId);
-    }
+    };
+
+  // Post comment
+  $scope.submitComment = function(){
+    console.log('test');
+    CommentService.postComments(needId,'57e741a0c7bf9aac05f4fe85',$scope.comment.text).then(function(result){
+      console.log(result);
+    });
+  };
 
 
   //Form data for the post model
   $scope.postData = {};
   $scope.postBtnStatus=true;
 
-  //Creates a comment modal
-  $ionicModal.fromTemplateUrl('templates/newcommentform.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  })
+  // //Creates a comment modal
+  // $ionicModal.fromTemplateUrl('templates/newcommentform.html', {
+  //   scope: $scope
+  // }).then(function(modal) {
+  //   $scope.modal = modal;
+  // })
 
   // Triggered in the post
   $scope.closeComment = function() {
@@ -149,18 +157,17 @@ $scope.loginBtnStatus=true;
   };
 
   // Perform the login action when the user submits the login form
-  $scope.addComment = function() {
-    console.log('adding comment', $scope.addComment);
-    CommentService.postComments($scope.comment.needId,'57e741a0c7bf9aac05f4fe85', $scope.comment.text);
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeComment();
-    }, 1000);
-  };
+  // $scope.addComment = function() {
+  //   console.log('adding comment', $scope.addComment);
+  //   CommentService.postComments($scope.comment.needId,'57e741a0c7bf9aac05f4fe85', $scope.comment.text);
+  //   // Simulate a login delay. Remove this and replace with your login
+  //   // code if using a login system
+  //   $timeout(function() {
+  //     $scope.closeComment();
+  //   }, 1000);
+  // };
 
-  // Post comment
-  $scope.postComment
+
 })
 
 .controller('SignupCtrl', function($scope) {
