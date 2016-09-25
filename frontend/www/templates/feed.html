@@ -4,7 +4,7 @@
     <div class="list list-inset">
       <label class="item item-input item-icon-right">
         <input type="text" placeholder="What do you need, and why?" ng-model="need.text" ng-click="expandNeedInput()">
-        <i class="icon ion-arrow-right-c" ng-click="submitNeed()" ng-hide="isNeedInputExpanded"></i>
+        <i class="icon ion-arrow-right-c positive" ng-click="submitNeed()" ng-hide="isNeedInputExpanded"></i>
       </label>
     </div>
 
@@ -28,7 +28,7 @@
           <div class="item item-text-wrap item-icon-right">
             I'm {{getUser(need.user).name}}!<br>
             {{need.text}}
-            <i class="icon ion-heart"></i>
+            <i class="icon ion-heart assertive"></i>
           </div>
         </div>
 

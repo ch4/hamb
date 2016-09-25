@@ -97,7 +97,9 @@ $scope.loginBtnStatus=true;
   };
 
   $scope.submitNeed = function(){
-    NeedService.postNeeds('57e7418dc7bf9aac05f4fe82', $scope.need.text);
+    NeedService.postNeeds('57e7418dc7bf9aac05f4fe82', $scope.need.text).then(function(){
+      $scope.refresh();
+    });
   };
 
   $scope.refresh();
@@ -131,6 +133,10 @@ $scope.loginBtnStatus=true;
     console.log('test');
     CommentService.postComments(needId,'57e741a0c7bf9aac05f4fe85',$scope.comment.text).then(function(result){
       console.log(result);
+      CommentService.getCommentsByNeed(needId).then(function(result){
+        console.log(result);
+        $scope.comments = result;
+      });
     });
   };
 
