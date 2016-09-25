@@ -46,6 +46,20 @@
   text-align: center;
 }
 
+#avatar-comment-pic {
+  text-align: center;
+}
+
+#comments-text {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+#comments-text2 {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
 #profile-info {
   text-align: center;
   margin-top: 50px;

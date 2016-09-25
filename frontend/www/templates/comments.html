@@ -1,9 +1,9 @@
 <ion-view view-title="Comments">
   <ion-content>
     <div id="comments-header" class="row">
-      <div class="col">Hi, I'm {{getUser(need.user).name}}<br>
-      I need {{need.text}}</div>
-      <div class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br>{{getUser(need.user).name}}</div>
+      <div class="col"><p id="comments-text">Hi, I'm {{getUser(need.user).name}}</p><br>
+      <p id="comments-text2">I need {{need.text}}</p></div>
+      <div id="avatar-comment-pic" class="col"><a href="/#/app/profile"><img width="100px" src="../img/avatar.png"></a><br>{{getUser(need.user).name}}</div>
     </div>
     <h1 id="comment-title"> Comments </h1>
       <div class="list list-inset">
