@@ -11,9 +11,8 @@ var Comment = require('./models/comment');
         // handle things like api calls
         // authentication routes
 
-        // sample api route
+        // All Users
         app.get('/api/users', function(req, res) {
-            // use mongoose to get all users in the database
             User.find(function(err, users) {
 
                 // if there is an error retrieving, send the error.
@@ -25,7 +24,7 @@ var Comment = require('./models/comment');
             });
         });
 
-        // route to handle creating user goes here (app.post)
+        // Create User
         app.post('/api/users', function(req, res) {
             var user = new User();
             user.name = req.body.name;
@@ -38,8 +37,8 @@ var Comment = require('./models/comment');
             });
         });
 
+        // All Needs
         app.get('/api/needs', function(req, res) {
-            // use mongoose to get all needs in the database
             Need.find(function(err, needs) {
 
                 // if there is an error retrieving, send the error.
@@ -51,9 +50,8 @@ var Comment = require('./models/comment');
             });
         });
 
+        // User's Needs
         app.get('/api/users/:user_id/needs', function(req, res) {
-
-            // use mongoose to get all needs for specific user in the database
             Need.find({
                 user: req.params.user_id
             }, function(err, user) {
@@ -67,10 +65,10 @@ var Comment = require('./models/comment');
             });
         });
 
-        // route to handle creating need goes here (app.post)
+        // Create Needs
         app.post('/api/users/:user_id/needs', function(req, res) {
             var need = new Need();
-            need.user = req.params.user_id
+            need.user = req.params.user_id;
             need.text = req.body.text;
 
             need.save(function(err) {
@@ -81,31 +79,35 @@ var Comment = require('./models/comment');
             });
         });
 
-        /*app.get('/api/users/needs/comments', function(req, res) {
-            // use mongoose to get all nerds in the database
-            User.find(function(err, users) {
+        // Comments for Need
+        app.get('/api/needs/:need_id/comments', function(req, res) {
+            Comment.find({
+                need: req.params.need_id
+            }, function(err, comments) {
 
                 // if there is an error retrieving, send the error.
                                 // nothing after res.send(err) will execute
                 if (err)
                     res.send(err);
 
-                res.json(users); // return all nerds in JSON format
+                res.json(comments); // return all nerds in JSON format
             });
         });
 
-        // route to handle creating goes here (app.post)
-        app.post('/api/users/needs/comments', function(req, res) {
+        // Create Comment
+        app.post('/api/needs/:need_id/comments', function(req, res) {
             var comment = new Comment();
-            user.name = req.body.name;
+            comment.need = req.params.need_id;
+            comment.user = req.body.user;
+            comment.text = req.body.text;
 
-            user.save(function(err) {
+            comment.save(function(err) {
                 if (err)
                     res.send(err);
 
-                res.json({ message: 'User created!' });
+                res.json({ message: 'Comment created!' });
             });
-        });*/
+        });
         // route to handle delete goes here (app.delete)
 
         // frontend routes =========================================================
