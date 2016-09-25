@@ -1,16 +1,19 @@
 <ion-view view-title="Profile">
   <ion-content>
-    <div id="profile-header" class="row">
-      <div class="col col-center">
+    <div id="profile-header" class="row responsive-lg">
+      <div id="avatar" class="col col-center">
         <img width="100px" src="../img/avatar.png">
       </div>
-      <div class="col">
+      <!-- <div class="col">
         <h1>{{name}}</h1><br><h1>{{phone}}</h1><br><h1>{{location}}</h1>
-      </div>
+      </div> -->
     </div>
       <div id="list list-inset profile-post-section" class="col">
-        <div class="item"><p class="profile-post"> <b> I need ... </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis, erat id semper hendrerit, diam dui sagittis nibh, eu ultricies lacus enim suscipit lacus. Nullam convallis vestibulum enim. Cras erat neque, egestas sit amet magna vitae, placerat porta urna. Proin vulputate pulvinar sapien eget sagittis. Integer libero erat, placerat at.</p></div>
-        <div class="item"><p class="profile-post"> <b> I need ... </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis, erat id semper hendrerit, diam dui sagittis nibh, eu ultricies lacus enim suscipit lacus. Nullam convallis vestibulum enim. Cras erat neque, egestas sit amet magna vitae, placerat porta urna. Proin vulputate pulvinar sapien eget sagittis. Integer libero erat, placerat at. </p></div>
+        <div id="profile-info"> <h1>{{name}} | {{location}}</h1> </div>
+        <span id="Date">September 23, 2016</span>
+        <div id="profile-box" class="item"><p class="profile-post"> <b> I need ... </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis, erat id semper hendrerit, diam dui sagittis nibh, eu ultricies lacus enim suscipit lacus. Nullam convallis vestibulum enim. Cras erat neque, egestas sit amet magna vitae, placerat porta urna. Proin vulputate pulvinar sapien eget sagittis. Integer libero erat, placerat at.</p></div>
+        <span id="Date">September 23, 2016</span>
+        <div id="profile-box" class="item"><p class="profile-post"> <b> I need ... </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis, erat id semper hendrerit, diam dui sagittis nibh, eu ultricies lacus enim suscipit lacus. Nullam convallis vestibulum enim. Cras erat neque, egestas sit amet magna vitae, placerat porta urna. Proin vulputate pulvinar sapien eget sagittis. Integer libero erat, placerat at. </p></div>
       </div>
     </div>
   </ion-content>
