@@ -46,20 +46,6 @@
   text-align: center;
 }
 
-#avatar-comment-pic {
-  text-align: center;
-}
-
-#comments-text {
-  font-size: 20px;
-  margin-top: 20px;
-}
-
-#comments-text2 {
-  font-size: 20px;
-  margin-top: 5px;
-}
-
 #profile-info {
   text-align: center;
   margin-top: 50px;
@@ -73,4 +59,13 @@
 
 #Date {
   margin: 0px 0px 0px 60px;
+}
+
+.gradient{
+    /* Rectangle 3: */
+background-image: linear-gradient(-90deg, #0E605A 0%, #53A0FD 53%, #1AC7C3 100%);
+}
+
+.button.button-balanced{
+    background-color: #0E2451;
 }
