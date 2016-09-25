@@ -51,6 +51,11 @@ angular.module('starter.controllers', [])
     { title: 'Cowbell', id: 6 }
   ];
 })
+.controller('FeedCtrl', function($scope, $stateParams) {
+  $scope.expandNeedInput = function(){
+    $scope.isNeedInputExpanded = true;
+  }
+})
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });

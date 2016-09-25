@@ -59,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+    .state('app.feed', {
+      url: '/feed',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/feed.html',
+          controller: 'FeedCtrl'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
