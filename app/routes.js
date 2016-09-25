@@ -108,15 +108,18 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
                 if (err)
                     res.send(err);
 
+                // Send sms here?
+                //var phone =
+                client.sendMessage({
+                    to: process.env.TEST_PHONE,
+                    from: process.env.TWILIO_PHONE,
+                    body: 'New Comment: ' + comment.text
+                });
+
                 res.json({ message: 'Comment added!' });
             });
 
-            //var phone =
-            client.sendMessage({
-                to: process.env.TEST_PHONE,
-                from: process.env.TWILIO_PHONE,
-                body: 'New Comment: ' + comment.text
-            });
+
         });
         // route to handle delete goes here (app.delete)
 
