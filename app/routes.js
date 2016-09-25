@@ -108,18 +108,18 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
                 if (err)
                     res.send(err);
 
-                // Send sms here?
-                var notify_user = User.find({
-                    need: req.params.need_id
-                })
-                var phone = notify_user.phone;
-                client.sendMessage({
-                    to: process.env.TEST_PHONE,
-                    from: process.env.TWILIO_PHONE,
-                    body: 'New Comment: ' + comment.text + ' to: ' + phone
-                });
+                // Send SMS to Need's User's phone
+                Need.findById(req.params.need_id, function(err, doc){
+                    User.findById(doc.user, function(err, doc){
+                        client.sendMessage({
+                            to: doc.phone,
+                            from: process.env.TWILIO_PHONE,
+                            body: 'New Comment: ' + comment.text
+                        });
 
-                res.json({ message: 'Comment added!' });
+                        res.json({ message: 'Comment added!' });
+                    });
+                });
             });
 
 
