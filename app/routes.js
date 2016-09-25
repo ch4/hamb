@@ -67,6 +67,19 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
             });
         });
 
+        // Single Need
+        app.get('/api/needs/:need_id', function(req, res) {
+            Need.findById(req.params.need_id, function(err, need) {
+
+                // if there is an error retrieving, send the error.
+                                // nothing after res.send(err) will execute
+                if (err)
+                    res.send(err);
+
+                res.json(need); // return all nerds in JSON format
+            });
+        });
+
         // User's Needs
         app.get('/api/users/:user_id/needs', function(req, res) {
             Need.find({
