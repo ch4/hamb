@@ -57,7 +57,7 @@ var client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKE
         app.get('/api/users/:user_id/needs', function(req, res) {
             Need.find({
                 user: req.params.user_id
-            }, function(err, user) {
+            }, function(err, needs) {
 
                 // if there is an error retrieving, send the error.
                                 // nothing after res.send(err) will execute
