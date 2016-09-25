@@ -4,7 +4,7 @@
     <div class="list list-inset">
       <label class="item item-input item-icon-right">
         <input type="text" placeholder="What do you need, and why?" ng-click="expandNeedInput()">
-        <i class="icon ion-arrow-right-c"></i>
+        <i class="icon ion-arrow-right-c" ng-click="submitNeed()"></i>
       </label>
     </div>
 
@@ -23,7 +23,7 @@
       <div class="list list-inset">
         <h3>Recent Needs</h3>
 
-        <div class="card">
+        <div class="card" ng-click="needClickEvent('123')">
           <div class="item item-text-wrap item-icon-right">
             I'm Harvey!<br>
             I need new shoes because I do lots of walking.
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" ng-click="needClickEvent('123')">
           <div class="item item-text-wrap item-icon-right">
             I'm Harvey!<br>
             I need new shoes because I do lots of walking.
@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" ng-click="needClickEvent('123')">
           <div class="item item-text-wrap item-icon-right">
             I'm Harvey!<br>
             I need new shoes because I do lots of walking.

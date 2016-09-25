@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -62,10 +62,25 @@ $scope.loginBtnStatus=true;
     { title: 'Cowbell', id: 6 }
   ];
 })
-.controller('FeedCtrl', function($scope, $stateParams) {
+.controller('FeedCtrl', function($scope, $stateParams, $state, $ionicModal, UserService) {
   $scope.expandNeedInput = function(){
     $scope.isNeedInputExpanded = true;
-  }
+  };
+
+  $scope.needClickEvent = function(needId){
+    var user = UserService.getUser();
+    if(!user._id){
+      // Create the login modal that we will use later
+      $ionicModal.fromTemplateUrl('templates/login.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal = modal;
+        modal.show();
+      });
+    } else {
+      $state.go('app.comments', {needId: needId});
+    }
+  };
 })
 
 .controller('ProfileCtrl', function($scope) {
