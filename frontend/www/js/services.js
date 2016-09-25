@@ -80,7 +80,7 @@ module('starter.services', [])
       // TODO
       return [];
     }
-    function postComments(needId, userId, text,){
+    function postComments(needId, userId, text){
       return $http.post('http://www.mindengei.com/api/needs/'+needId+'/comments',{userId:userId,text:text})
         .then(function (results) {
           return results.data;
