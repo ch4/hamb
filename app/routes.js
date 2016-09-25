@@ -101,7 +101,7 @@ var Comment = require('./models/comment');
             comment.user = req.body.user;
             comment.text = req.body.text;
 
-            user.save(function(err) {
+            comment.save(function(err) {
                 if (err)
                     res.send(err);
 
