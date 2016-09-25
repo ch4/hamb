@@ -4,7 +4,8 @@ factory('UserService', [function() {
   var user = {};
 
   return {
-    getUser: getUser
+    getUser: getUser,
+    setUser: setUser
   };
 
   function getUser(){

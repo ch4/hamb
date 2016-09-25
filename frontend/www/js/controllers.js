@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, UserService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -38,6 +38,7 @@ $scope.loginBtnStatus=true;
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
+    UserService.setUser($scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -68,18 +69,18 @@ $scope.loginBtnStatus=true;
   };
 
   $scope.needClickEvent = function(needId){
-    var user = UserService.getUser();
-    if(!user._id){
-      // Create the login modal that we will use later
-      $ionicModal.fromTemplateUrl('templates/login.html', {
-        scope: $scope
-      }).then(function(modal) {
-        $scope.modal = modal;
-        modal.show();
-      });
-    } else {
+    // var user = UserService.getUser();
+    // if(!user.length){
+    //   // Create the login modal that we will use later
+    //   $ionicModal.fromTemplateUrl('templates/login.html', {
+    //     scope: $scope
+    //   }).then(function(modal){
+    //     $scope.modal = modal;
+    //     $scope.modal.show();
+    //   });
+    // } else {
       $state.go('app.comments', {needId: needId});
-    }
+    // }
   };
 })
 
