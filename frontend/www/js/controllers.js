@@ -110,7 +110,7 @@ $scope.loginBtnStatus=true;
   $scope.date = 'September 23, 2016';
 })
 
-.controller('CommentCtrl', function($scope, $ionicModal) {
+.controller('CommentCtrl', function($scope, $ionicModal, $stateParams, NeedService, CommentService, UserService) {
     // $scope.getNeed = function(){
     var needId = $stateParams.needId;
     NeedService.getNeed(needId).then(function(result){
