@@ -58,6 +58,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html',
+          controller: 'ProfileCtrl'
+        }
+      }
+    })
+    .state('app.comments', {
+      url: '/comments',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/comments.html',
+          controller: 'CommentCtrl'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/playlists/:playlistId',
