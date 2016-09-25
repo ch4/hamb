@@ -1,15 +1,25 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
+<!-- log in and sign up buttons -->
+      <div class="title login-btns">
+        <button id="loginBtn" class="button" ng-class="{'button-positive':loginBtnStatus, 'button-light':!loginBtnStatus}"  ng-click="toggleLogin(true)">
+          Log in
+        </button>
+        <button id="loginBtn" class="button" ng-class="{'button-positive':!loginBtnStatus, 'button-light':loginBtnStatus}"  ng-click="toggleLogin(false)">
+        Sign Up
+        </button>
+      </div>
+    <div  class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
-  </ion-header-bar>
+</ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()">
+
+<!--  login form -->
+    <form ng-submit="doLogin()" ng-hide="!loginBtnStatus">
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username</span>
+          <span class="input-label">Name</span>
           <input type="text" ng-model="loginData.username">
         </label>
         <label class="item item-input">
@@ -17,7 +27,27 @@
           <input type="password" ng-model="loginData.password">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
+          <button id="loginBtn" class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+      </div>
+<!-- sign up form -->
+    </form>
+    <form ng-submit="doLogin()" ng-hide="loginBtnStatus">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="loginData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button id="loginBtn" class="button button-block button-positive" type="submit">Sign Up</button>
         </label>
       </div>
     </form>

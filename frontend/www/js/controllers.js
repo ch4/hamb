@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+$scope.loginBtnStatus=true;
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -23,6 +24,11 @@ angular.module('starter.controllers', [])
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
+
+//switch from login to signup
+    $scope.toggleLogin = function(loginStatus) {
+        $scope.loginBtnStatus = loginStatus;
+    };
 
   // Open the login modal
   $scope.login = function() {
@@ -41,6 +47,11 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('SignupCtrl', function($scope) {
+  $scope.name = 'Name';
+  $scope.phone = 'Phone';
+})
+
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
@@ -55,6 +66,23 @@ angular.module('starter.controllers', [])
   $scope.expandNeedInput = function(){
     $scope.isNeedInputExpanded = true;
   }
+})
+
+.controller('ProfileCtrl', function($scope) {
+  //placeholder scopes for app until we create scopes
+  $scope.name = 'John Doe';
+  $scope.phone = '(111) 111-1111';
+  $scope.location = 'San Francisco, CA, US';
+  $scope.quote = 'Lorem ipsum dolor sit amet.';
+})
+
+.controller('CommentCtrl', function($scope) {
+  $scope.subject = 'Test';
+  $scope.message = 'Lorem ipsum dolor sit amet.';
+})
+
+.controller('SignupCtrl', function($scope) {
+  $scope.message = 'Test';
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
