@@ -1,9 +1,9 @@
 /* Empty. Add your own CSS if you like */
 #comments-header, #profile-header {
-  background-color: #1ac7c3
+  background-color: #1ac7c3;
 }
 
-.item {
+#item-id {
   font-size: 30px;
 }
 
@@ -14,13 +14,15 @@
 .comment-info {
   margin-top: 10px;
 }
+
 .login-btns {
-    padding-top: 5px;
+  padding-top: 5px;
 }
+
 .bar {
-    background-color: #B1DFE5;
+  background-color: #B1DFE5;
 }
 
 #loginBtn.button.button-positive {
-    background-color: #0E2451;
+  background-color: #0E2451;
 }
