@@ -40,3 +40,23 @@
 #comment-title {
   margin-left: 10px;
 }
+
+#avatar {
+  margin: 40px 0px 40px 0px;
+  text-align: center;
+}
+
+#profile-info {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#profile-box {
+  border-radius: 10px;
+  margin: 20px 50px 20px 50px;
+  background-color: #b1dfe5;
+}
+
+#Date {
+  margin: 0px 0px 0px 60px;
+}

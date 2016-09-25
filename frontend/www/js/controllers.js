@@ -47,6 +47,9 @@ $scope.loginBtnStatus=true;
   };
 })
 
+  //Creates a comment modal
+
+
 .controller('SignupCtrl', function($scope) {
   $scope.name = 'Name';
   $scope.phone = 'Phone';
@@ -71,9 +74,8 @@ $scope.loginBtnStatus=true;
 .controller('ProfileCtrl', function($scope) {
   //placeholder scopes for app until we create scopes
   $scope.name = 'John Doe';
-  $scope.phone = '(111) 111-1111';
   $scope.location = 'San Francisco, CA, US';
-  $scope.quote = 'Lorem ipsum dolor sit amet.';
+  $scope.date = 'September 23, 2016';
 })
 
 .controller('CommentCtrl', function($scope) {
